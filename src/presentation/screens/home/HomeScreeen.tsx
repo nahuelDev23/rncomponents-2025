@@ -1,7 +1,8 @@
+
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
-import { globalStyles } from '../../config/theme/theme';
-import { Title } from '../ui/ Title';
+import { View, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 export const menuItems = [
   // 01-animationMenuItems
   {
@@ -14,6 +15,7 @@ export const menuItems = [
     icon: 'albums-outline',
     component: 'Animation102Screen',
   },
+
 
   // 02-menuItems
   {
@@ -67,13 +69,12 @@ export const menuItems = [
 
 export const HomeScreen = () => {
   return (
-    <View style={globalStyles.mainContainer}>
-      <View style={globalStyles.globalMargin}>
-        <ScrollView>
-          <Title text="HOlis" />
-        </ScrollView>
-      </View>
-      <Text />
+    <View>
+      <Text>HomeScreen</Text>
+      <Text>
+        <Icon name="rocket" size={30} color="#900" />
+
+      </Text>
     </View>
   );
 };
