@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { globalStyles } from '../../config/theme/theme';
-import { Title } from '../ui/ Title';
-export const menuItems = [
+import { Title } from '../ui/Title';
+import { MenuItem } from '../ui/MenuItem';
+
+export const animationItems = [
   // 01-animationMenuItems
   {
     name: 'Animation 101',
@@ -14,6 +16,9 @@ export const menuItems = [
     icon: 'albums-outline',
     component: 'Animation102Screen',
   },
+
+];
+export const menuItems = [
 
   // 02-menuItems
   {
@@ -46,7 +51,9 @@ export const menuItems = [
     icon: 'flask-outline',
     component: 'ChangeThemeScreen',
   },
+];
 
+export const uiItems = [
   // 03- uiMenuItems
   {
     name: 'Switches',
@@ -62,15 +69,52 @@ export const menuItems = [
     name: 'TextInputs',
     icon: 'document-text-outline',
     component: 'TextInputScreen',
-  },
-];
+  }];
 
 export const HomeScreen = () => {
   return (
     <View style={globalStyles.mainContainer}>
       <View style={globalStyles.globalMargin}>
         <ScrollView>
-          <Title text="HOlis" />
+
+          <Title text="Opciones de menu" />
+          {
+            animationItems.map((item, index) => (
+              <MenuItem
+                key={item.component}
+                {...item}
+                //para calcular el border radius
+                isFirst={index === 0}
+                isLast={index === menuItems.length - 1}
+              />
+            ))
+          }
+          <View style={{ height: 10 }} />
+          {
+            menuItems.map((item, index) => (
+              <MenuItem
+                key={item.component}
+                {...item}
+                //para calcular el border radius
+                isFirst={index === 0}
+                isLast={index === menuItems.length - 1}
+              />
+            ))
+          }
+
+          <View style={{ height: 10 }} />
+          {
+            uiItems.map((item, index) => (
+              <MenuItem
+                key={item.component}
+                {...item}
+                //para calcular el border radius
+                isFirst={index === 0}
+                isLast={index === menuItems.length - 1}
+              />
+            ))
+          }
+
         </ScrollView>
       </View>
       <Text />
